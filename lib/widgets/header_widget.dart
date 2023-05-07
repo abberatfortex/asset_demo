@@ -11,8 +11,8 @@ class HeaderWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('$mainHeading', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-        Text('$primaryHeading', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
+        Text(mainHeading ?? '', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+        Text(primaryHeading ?? '', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
       ],
     );
   }
