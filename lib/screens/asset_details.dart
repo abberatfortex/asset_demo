@@ -1,6 +1,8 @@
 import 'package:asset_demo/widgets/header_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/graph_widget.dart';
+
 
 
 class AssetDetails extends StatelessWidget {
@@ -14,7 +16,7 @@ class AssetDetails extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
         child: Column(
           children: [
-           
+            GraphWidget(),
           ],
         ),
       ),
