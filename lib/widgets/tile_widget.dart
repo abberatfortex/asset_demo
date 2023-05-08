@@ -19,9 +19,6 @@ class _TileWidgetState extends State<TileWidget> {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.13,
         padding: EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20)
-        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

@@ -22,10 +22,7 @@ class _GraphWidgetState extends State<GraphWidget> {
           borderRadius: BorderRadius.all(Radius.circular(20)),
           child: Container(
             height: 250,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.white,
-            ),
+
           ),
         )
       ],
