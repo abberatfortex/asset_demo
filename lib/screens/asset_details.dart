@@ -1,3 +1,4 @@
+import 'package:asset_demo/widgets/dividend_widget.dart';
 import 'package:asset_demo/widgets/general_widget.dart';
 import 'package:asset_demo/widgets/graph_widget.dart';
 import 'package:asset_demo/widgets/tile_widget.dart';
@@ -20,6 +21,7 @@ class _AssetDetailsState extends State<AssetDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Asset Details'), centerTitle: true, elevation: 0,
+
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -31,7 +33,8 @@ class _AssetDetailsState extends State<AssetDetails> {
               SizedBox(height: 20),
               GeneralWidget(),
               SizedBox(height: 20),
-              TradesWidget()
+              TradesWidget(),
+              DividendWidget()
             ],
           ),
         ),

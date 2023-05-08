@@ -22,9 +22,10 @@ class _RowWidgetState extends State<RowWidget> {
           Colors.white
       ),
       child: Row(
+
         children: [
           Expanded(
-              flex: 1,
+              flex: 2,
               child: Text(widget.col1 ?? '',  style: TextStyle(fontWeight:  widget.type == 'header' ? FontWeight.bold : FontWeight.normal, color:  widget.type == 'header' ? Colors.white : Colors.black, fontSize: 12))),
           Expanded(
               flex: 2,
