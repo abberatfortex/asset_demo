@@ -1,15 +1,23 @@
+import 'package:asset_demo/models/value_model.dart';
 import 'package:flutter/material.dart';
 
-class TileWidget extends StatelessWidget {
-  String? t1,t2,t3,t4,t5,t6;
- TileWidget({Key? key, this.t1, this.t2, this.t3, this.t4, this.t5, this.t6}) : super(key: key);
+class TileWidget extends StatefulWidget {
+  String? title, sinceChanged;
+  List<ValueModel>? values;
+ TileWidget({Key? key, this.title, this.values, this.sinceChanged}) : super(key: key);
 
+  @override
+  State<TileWidget> createState() => _TileWidgetState();
+}
+
+class _TileWidgetState extends State<TileWidget> {
   @override
   Widget build(BuildContext context) {
     return Material(
       elevation: 1,
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: Container(
+        height: MediaQuery.of(context).size.height * 0.13,
         padding: EdgeInsets.all(12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20)
@@ -17,13 +25,20 @@ class TileWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(t1 ?? '', style: TextStyle(color: Colors.grey.shade600, fontWeight: FontWeight.bold),),
-            SizedBox(height: 5),
-            rowWidget(t2: t2, t3: t3),
-            SizedBox(height: 5),
-            rowWidget(t2: t4, t3: t5),
-            SizedBox(height: 5),
-            Text(t6 ?? '', style: TextStyle(color: Colors.grey.shade600, fontSize: 12),),
+            Text(widget.title ?? '', style: TextStyle(color: Colors.grey.shade600, fontWeight: FontWeight.bold),),
+            const SizedBox(height: 5),
+            Expanded(
+              child: ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                itemCount: widget.values!.length,
+              itemBuilder: (context, index){
+                  return ValueRow(value: widget.values![index].value, changeInValue: widget.values![index].changeInValue);
+              }),
+            ),
+            const SizedBox(height: 5),
+            Text(widget.sinceChanged ?? '', style: TextStyle(color: Colors.grey.shade600, fontSize: 12),),
           ],
         ),
       ),
@@ -31,27 +46,30 @@ class TileWidget extends StatelessWidget {
   }
 }
 
-class rowWidget extends StatelessWidget {
-  const rowWidget({
+class ValueRow extends StatelessWidget {
+  const ValueRow({
     super.key,
-    required this.t2,
-    required this.t3,
+    required this.value,
+    required this.changeInValue,
   });
 
-  final String? t2;
-  final String? t3;
+  final String? value;
+  final String? changeInValue;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children:[
-        Text(t2?? '', style: TextStyle(fontWeight: FontWeight.bold),),
-        Container(
-          padding: t3 == null ? EdgeInsets.zero:EdgeInsets.all(4),
-            decoration: BoxDecoration(color: Colors.green.shade100, borderRadius: BorderRadius.circular(5)),
-            child: Text(t3 ?? '', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 12),)),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 2.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children:[
+          Text(value?? '', style: TextStyle(fontWeight: FontWeight.bold),),
+          Container(
+            padding: changeInValue == null ? EdgeInsets.zero:EdgeInsets.all(4),
+              decoration: BoxDecoration(color: Colors.green.shade100, borderRadius: BorderRadius.circular(5)),
+              child: Text(changeInValue ?? '', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 12),)),
+        ],
+      ),
     );
   }
 }

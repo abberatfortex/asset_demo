@@ -3,29 +3,35 @@ import 'package:asset_demo/widgets/graph_widget.dart';
 import 'package:asset_demo/widgets/tile_widget.dart';
 import 'package:asset_demo/widgets/trades_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 
 
-class AssetDetails extends StatelessWidget {
+class AssetDetails extends StatefulWidget {
   const AssetDetails({Key? key}) : super(key: key);
 
   @override
+  State<AssetDetails> createState() => _AssetDetailsState();
+}
+
+class _AssetDetailsState extends State<AssetDetails> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Asset Details'), centerTitle: true, elevation: 0,),
+      appBar: AppBar(title: const Text('Asset Details'), centerTitle: true, elevation: 0,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children:  const [
               GraphWidget(),
-              const SizedBox(height: 10),
+              SizedBox(height: 20),
               GeneralWidget(),
-              const SizedBox(height: 10),
+              SizedBox(height: 20),
               TradesWidget()
-
             ],
           ),
         ),
