@@ -62,7 +62,7 @@ class ValueRow extends StatelessWidget {
         children:[
           Text(value?? '', style: TextStyle(fontWeight: FontWeight.bold),),
           Container(
-            padding: changeInValue == null ? EdgeInsets.zero:EdgeInsets.all(4),
+            padding: changeInValue == null ? EdgeInsets.zero:EdgeInsets.all(2),
               decoration: BoxDecoration(color: Colors.green.shade100, borderRadius: BorderRadius.circular(5)),
               child: Text(changeInValue ?? '', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 12),)),
         ],

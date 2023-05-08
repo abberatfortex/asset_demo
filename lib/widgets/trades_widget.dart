@@ -17,14 +17,14 @@ class _TradesWidgetState extends State<TradesWidget> {
       children: [
         HeaderWidget(title: 'Trades'),
         RowWidget(type: 'header',
-        col1: 'Pc', col2: 'Start', col3: 'End', col4: 'Purchase', col5: '', col6: 'IZF',),
+        col1: 'Pc', col1Flex: 1, col2: 'Start', col3: 'End', col4: 'Purchase', col5: '', col6: 'IZF',),
         ListView.builder(
           shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             itemCount: 4,
             itemBuilder: (context, index){
               return  RowWidget(type: index%2 == 0 ? 'data' : 'dataGrey',
-                col1: '61', col2: '08 Jan 19', col3: '(open)', col4: '1160,56', col5: '1675,67', col6: '5.35%',);
+                col1: '61', col1Flex: 1, col2: '08 Jan 19', col3: '(open)', col4: '1160,56', col5: '1675,67', col6: '5.35%',);
             })
 
       ],
