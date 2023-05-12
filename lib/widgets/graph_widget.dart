@@ -14,9 +14,6 @@ class _GraphWidgetState extends State<GraphWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        HeaderWidget(title: 'iShares Core MSCI Europe UCITS ETF',
-          subTitle: 'IEOOB1YZSC51',),
-        const SizedBox(height: 10),
         Material(
           elevation: 1,
           borderRadius: BorderRadius.all(Radius.circular(20)),

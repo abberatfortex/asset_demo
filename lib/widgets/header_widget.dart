@@ -12,6 +12,7 @@ class HeaderWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(title ?? '', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+        SizedBox(height: 5),
         Text(subTitle ?? '', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
       ],
     );
