@@ -1,7 +1,7 @@
 import 'package:asset_demo/screens/settings.dart';
 import 'package:asset_demo/widgets/dash_line_widget.dart';
 import 'package:asset_demo/widgets/header_widget.dart';
-import 'package:asset_demo/widgets/portfolio_widget.dart';
+import 'package:asset_demo/widgets/portfolio_files_listing_cell.dart';
 import 'package:asset_demo/widgets/round_corner_button.dart';
 import 'package:flutter/material.dart';
 
@@ -52,9 +52,9 @@ class PortfolioFilesListing extends StatelessWidget {
                           ),
                       itemCount: 5,
                       itemBuilder: (context, index) {
-                        return PortfolioWidget(
-                          portfolioName: 'kommer.portfolio',
-                          size: '1.62 MB',
+                        return PortfolioFilesListingCell(
+                          portfolioFileName: 'kommer.portfolio',
+                          fileSize: '1.62 MB',
                           updatedAt: 'Last modified 19 Apr 2022 4:15',
                         );
                       }),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class PortfolioWidget extends StatelessWidget {
-  String? portfolioName, size, updatedAt;
-  PortfolioWidget({
-    this.portfolioName,
-    this.size,
+class PortfolioFilesListingCell extends StatelessWidget {
+  String? portfolioFileName, fileSize, updatedAt;
+  PortfolioFilesListingCell({
+    this.portfolioFileName,
+    this.fileSize,
     this.updatedAt,
     super.key,
   });
@@ -20,17 +20,17 @@ class PortfolioWidget extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  portfolioName ?? '',
+                  portfolioFileName ?? '',
                   style: TextStyle(fontSize: 14),
                 ),
                 SizedBox(width: 8),
                 Container(
-                  padding: size == null ? EdgeInsets.zero : EdgeInsets.all(4),
+                  padding: fileSize == null ? EdgeInsets.zero : EdgeInsets.all(4),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: Colors.grey),
                   child: Text(
-                    size ?? '',
+                    fileSize ?? '',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 8),
                   ),
                 ),
