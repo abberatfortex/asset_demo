@@ -1,28 +1,41 @@
+import 'package:asset_demo/models/portfolio_files_listing_cell_model.dart';
 import 'package:asset_demo/screens/settings.dart';
 import 'package:asset_demo/widgets/dash_line_widget.dart';
 import 'package:asset_demo/widgets/header_widget.dart';
+import 'package:asset_demo/widgets/porfolio_files_listing_footer.dart';
 import 'package:asset_demo/widgets/portfolio_files_listing_cell.dart';
-import 'package:asset_demo/widgets/round_corner_button.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class PortfolioFilesListing extends StatelessWidget {
-  const PortfolioFilesListing({Key? key}) : super(key: key);
+  PortfolioFilesListing({Key? key}) : super(key: key);
+
+  List<PortfolioFilesListingCellModel> portfolioFilesListingCellList = [
+    PortfolioFilesListingCellModel('kommer.portfolio', '1,62 MB', 'Last modified: 19 Apr 2022 15:45'),
+    PortfolioFilesListingCellModel('stock.portfolio', '1,98 MB', 'Last modified: 19 Apr 2022 15:45'),
+    PortfolioFilesListingCellModel('crypto.portfolio', '1,14 MB', 'Last modified: 07 Mar 2022 11:37'),
+    PortfolioFilesListingCellModel('real_estate.portfolio', '0,67 MB', 'Last modified: 16 Jan 2022 16:15')
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Upload Portfolio Information'),
+        title: const Text('Upload Portfolio Information'),
+        leading: Image.asset(
+          'assets/images/logo.png',
+          scale: 3,
+        ),
         centerTitle: true,
         elevation: 0,
         actions: [
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Settings()));
-            },
-          ),
+          InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Settings()));
+              },
+              child: Theme.of(context).brightness == Brightness.dark
+                  ? Image.asset('assets/images/settingDark.png')
+                  : Image.asset('assets/images/settingLight.png')),
         ],
       ),
       body: Padding(
@@ -35,45 +48,40 @@ class PortfolioFilesListing extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   HeaderWidget(title: 'Previously opened fies'),
+                  const SizedBox(height: 10),
                   Container(
                     height: 1.0,
                     width: double.infinity,
-                    margin: EdgeInsets.only(bottom: 20),
+                    margin: const EdgeInsets.only(bottom: 20),
                     color: Colors.grey.shade300,
                   ),
                   ListView.separated(
                       shrinkWrap: true,
                       separatorBuilder: (context, index) => Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 12.0),
+                            padding: const EdgeInsets.symmetric(vertical: 20.0),
                             child: DashLineView(
                               fillRate: 0.7,
                               dashColor: Colors.grey.shade300,
                             ),
                           ),
-                      itemCount: 5,
+                      itemCount: portfolioFilesListingCellList.length,
                       itemBuilder: (context, index) {
                         return PortfolioFilesListingCell(
-                          portfolioFileName: 'kommer.portfolio',
-                          fileSize: '1.62 MB',
-                          updatedAt: 'Last modified 19 Apr 2022 4:15',
+                          portfolioFileName: portfolioFilesListingCellList[index].portfolioFileName,
+                          fileSize: portfolioFilesListingCellList[index].fileSize,
+                          updatedAt: portfolioFilesListingCellList[index].updatedAt,
                         );
                       }),
                   Container(
                     height: 1.0,
                     width: double.infinity,
-                    margin: EdgeInsets.symmetric(vertical: 20),
+                    margin: const EdgeInsets.symmetric(vertical: 20),
                     color: Colors.grey.shade300,
                   ),
                 ],
               ),
             ),
-            HeaderWidget(
-              title: 'Select new portfolio file',
-              subTitle: 'Select where your existing data file is stored',
-            ),
-            // const Text('Select where your existing data file is stored'),
-            const SizedBox(height: 15),
-            RoundCornerButton(buttonText: 'Open new portfolio file')
+            const PortfolioFilesListingFooter()
           ],
         ),
       ),

@@ -2,13 +2,7 @@ import 'package:asset_demo/widgets/header_widget.dart';
 import 'package:flutter/material.dart';
 
 class ShareDataWidget extends StatelessWidget {
-  String? imagePath,
-      assetName,
-      assetNumber,
-      differenceInPercent,
-      assetValue,
-      assetCalculation,
-      differenceInNumber;
+  String? imagePath, assetName, assetNumber, differenceInPercent, assetValue, assetCalculation, differenceInNumber;
   ShareDataWidget({
     this.imagePath,
     this.assetName,
@@ -33,8 +27,7 @@ class ShareDataWidget extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                HeaderWidget(
-                    title: assetName ?? '', subTitle: assetNumber ?? ''),
+                HeaderWidget(title: assetName ?? '', subTitle: assetNumber ?? ''),
                 SizedBox(height: 8),
                 Text(
                   differenceInPercent ?? '',
@@ -47,8 +40,7 @@ class ShareDataWidget extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            HeaderWidget(
-                title: assetValue ?? '', subTitle: assetCalculation ?? ''),
+            HeaderWidget(title: assetValue ?? '', subTitle: assetCalculation ?? ''),
             SizedBox(height: 8),
             Text(
               differenceInNumber ?? '',

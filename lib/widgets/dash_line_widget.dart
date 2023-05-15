@@ -18,12 +18,12 @@ class DashLineView extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final boxSize = direction == Axis.horizontal
-            ? constraints.constrainWidth()
-            : constraints.constrainHeight();
+        final boxSize = direction == Axis.horizontal ? constraints.constrainWidth() : constraints.constrainHeight();
         final dCount = (boxSize * fillRate / dashWith).floor();
         return Flex(
-          children: List.generate(dCount, (_) {
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          direction: direction,
+          children:  List.generate(dCount, (_) {
             return SizedBox(
               width: direction == Axis.horizontal ? dashWith : dashHeight,
               height: direction == Axis.horizontal ? dashHeight : dashWith,
@@ -32,8 +32,6 @@ class DashLineView extends StatelessWidget {
               ),
             );
           }),
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          direction: direction,
         );
       },
     );

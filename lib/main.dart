@@ -21,10 +21,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           appBarTheme: AppBarTheme(
               color: Colors.grey.shade50,
-              titleTextStyle: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16),
+              titleTextStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
               elevation: 0,
               centerTitle: true,
               iconTheme: IconThemeData(color: Colors.black)),
@@ -35,10 +32,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           appBarTheme: AppBarTheme(
               color: Colors.grey.shade900,
-              titleTextStyle: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16),
+              titleTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
               elevation: 0,
               centerTitle: true,
               iconTheme: IconThemeData(color: Colors.white)),

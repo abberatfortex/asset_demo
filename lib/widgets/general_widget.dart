@@ -23,10 +23,9 @@ class _GeneralWidgetState extends State<GeneralWidget> {
         Row(
           children: [
             Expanded(
-                child: TileWidget(title: 'Purchase (FIFO)', values: [
-              ValueModel(value: '\u{20AC}1.160,56'),
-              ValueModel(value: '\u{20AC}19,06')
-            ])),
+                child: TileWidget(
+                    title: 'Purchase (FIFO)',
+                    values: [ValueModel(value: '\u{20AC}1.160,56'), ValueModel(value: '\u{20AC}19,06')])),
             SizedBox(width: 20),
             Expanded(
                 child: TileWidget(title: 'Valuation', values: [
@@ -46,10 +45,8 @@ class _GeneralWidgetState extends State<GeneralWidget> {
             )),
             SizedBox(width: 20),
             Expanded(
-                child: TileWidget(title: 'Performance', values: [
-              ValueModel(value: '5.35% IZF'),
-              ValueModel(value: '5.23% TTWROR')
-            ])),
+                child: TileWidget(
+                    title: 'Performance', values: [ValueModel(value: '5.35% IZF'), ValueModel(value: '5.23% TTWROR')])),
           ],
         ),
       ],

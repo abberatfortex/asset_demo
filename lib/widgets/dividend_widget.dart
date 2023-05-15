@@ -27,7 +27,7 @@ class _DividendWidgetState extends State<DividendWidget> {
         ),
         ListView.builder(
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: 4,
             itemBuilder: (context, index) {
               return RowWidget(

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class RowWidget extends StatefulWidget {
   String? col1, col2, col3, col4, col5, col6, type;
   int? col1Flex, col2Flex, col3Flex, col4Flex, col5Flex, col6Flex;
+
   RowWidget(
       {Key? key,
       this.col1,
@@ -50,9 +51,7 @@ class _RowWidgetState extends State<RowWidget> {
               flex: widget.col1Flex ?? 2,
               child: Text(widget.col1 ?? '',
                   style: TextStyle(
-                      fontWeight: widget.type == 'header'
-                          ? FontWeight.bold
-                          : FontWeight.normal,
+                      fontWeight: widget.type == 'header' ? FontWeight.bold : FontWeight.normal,
                       color: widget.type == 'header'
                           ? Colors.white
                           : Theme.of(context).brightness == Brightness.dark
@@ -63,9 +62,7 @@ class _RowWidgetState extends State<RowWidget> {
               flex: widget.col2Flex ?? 2,
               child: Text(widget.col2 ?? '',
                   style: TextStyle(
-                      fontWeight: widget.type == 'header'
-                          ? FontWeight.bold
-                          : FontWeight.normal,
+                      fontWeight: widget.type == 'header' ? FontWeight.bold : FontWeight.normal,
                       color: widget.type == 'header'
                           ? Colors.white
                           : Theme.of(context).brightness == Brightness.dark
@@ -76,9 +73,7 @@ class _RowWidgetState extends State<RowWidget> {
               flex: widget.col3Flex ?? 2,
               child: Text(widget.col3 ?? '',
                   style: TextStyle(
-                      fontWeight: widget.type == 'header'
-                          ? FontWeight.bold
-                          : FontWeight.normal,
+                      fontWeight: widget.type == 'header' ? FontWeight.bold : FontWeight.normal,
                       color: widget.type == 'header'
                           ? Colors.white
                           : Theme.of(context).brightness == Brightness.dark
@@ -89,9 +84,7 @@ class _RowWidgetState extends State<RowWidget> {
               flex: widget.col4Flex ?? 2,
               child: Text(widget.col4 ?? '',
                   style: TextStyle(
-                      fontWeight: widget.type == 'header'
-                          ? FontWeight.bold
-                          : FontWeight.normal,
+                      fontWeight: widget.type == 'header' ? FontWeight.bold : FontWeight.normal,
                       color: widget.type == 'header'
                           ? Colors.white
                           : Theme.of(context).brightness == Brightness.dark
@@ -102,9 +95,7 @@ class _RowWidgetState extends State<RowWidget> {
               flex: widget.col5Flex ?? 2,
               child: Text(widget.col5 ?? '',
                   style: TextStyle(
-                      fontWeight: widget.type == 'header'
-                          ? FontWeight.bold
-                          : FontWeight.normal,
+                      fontWeight: widget.type == 'header' ? FontWeight.bold : FontWeight.normal,
                       color: widget.type == 'header'
                           ? Colors.white
                           : Theme.of(context).brightness == Brightness.dark
@@ -115,9 +106,7 @@ class _RowWidgetState extends State<RowWidget> {
               flex: widget.col6Flex ?? 1,
               child: Text(widget.col6 ?? '',
                   style: TextStyle(
-                      fontWeight: widget.type == 'header'
-                          ? FontWeight.bold
-                          : FontWeight.normal,
+                      fontWeight: widget.type == 'header' ? FontWeight.bold : FontWeight.normal,
                       color: widget.type == 'header'
                           ? Colors.white
                           : Theme.of(context).brightness == Brightness.dark

@@ -4,7 +4,6 @@ import 'package:asset_demo/widgets/graph_widget.dart';
 import 'package:asset_demo/widgets/header_widget.dart';
 import 'package:asset_demo/widgets/trades_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class AssetDetails extends StatefulWidget {
   const AssetDetails({Key? key}) : super(key: key);
@@ -33,13 +32,13 @@ class _AssetDetailsState extends State<AssetDetails> {
                 subTitle: 'IEOOB1YZSC51',
               ),
               const SizedBox(height: 10),
-              GraphWidget(),
-              SizedBox(height: 20),
-              GeneralWidget(),
-              SizedBox(height: 20),
-              TradesWidget(),
-              SizedBox(height: 20),
-              DividendWidget()
+              const GraphWidget(),
+              const SizedBox(height: 20),
+              const GeneralWidget(),
+              const SizedBox(height: 20),
+              const TradesWidget(),
+              const SizedBox(height: 20),
+              const DividendWidget()
             ],
           ),
         ),

@@ -22,8 +22,7 @@ class _StatementOfAssetsState extends State<StatementOfAssets> {
           IconButton(
             icon: Icon(Icons.settings),
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Settings()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()));
             },
           ),
         ],
@@ -43,12 +42,8 @@ class _StatementOfAssetsState extends State<StatementOfAssets> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Gesamtportfolio',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                Text('€13.613,62',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                Text('Gesamtportfolio', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                Text('€13.613,62', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
               ],
             ),
             Container(

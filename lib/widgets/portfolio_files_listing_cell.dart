@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class PortfolioFilesListingCell extends StatelessWidget {
   String? portfolioFileName, fileSize, updatedAt;
+
   PortfolioFilesListingCell({
     this.portfolioFileName,
     this.fileSize,
@@ -21,31 +23,28 @@ class PortfolioFilesListingCell extends StatelessWidget {
               children: [
                 Text(
                   portfolioFileName ?? '',
-                  style: TextStyle(fontSize: 14),
+                  style: const TextStyle(fontSize: 14),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Container(
-                  padding: fileSize == null ? EdgeInsets.zero : EdgeInsets.all(4),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.grey),
+                  padding: fileSize == null ? EdgeInsets.zero : const EdgeInsets.all(4),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: const Color(0xFFDDDFE1)),
                   child: Text(
                     fileSize ?? '',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 8),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 8, color: Colors.black),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               updatedAt ?? '',
-              style: TextStyle(color: Colors.grey, fontSize: 10),
+              style: const TextStyle(color: Colors.grey, fontSize: 10),
             )
           ],
         ),
-        Icon(
+        const Icon(
           Icons.arrow_forward_ios,
-          color: Colors.grey,
         )
       ],
     );
