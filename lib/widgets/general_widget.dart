@@ -11,32 +11,47 @@ class GeneralWidget extends StatefulWidget {
 }
 
 class _GeneralWidgetState extends State<GeneralWidget> {
-
-
-
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        HeaderWidget(title: 'General',),
+        HeaderWidget(
+          title: 'General',
+        ),
         const SizedBox(height: 10),
         Row(
           children: [
-            Expanded(child: TileWidget(title: 'Purchase (FIFO)', values: [ValueModel(value: '\u{20AC}1.160,56'), ValueModel(value: '\u{20AC}19,06')])),
+            Expanded(
+                child: TileWidget(title: 'Purchase (FIFO)', values: [
+              ValueModel(value: '\u{20AC}1.160,56'),
+              ValueModel(value: '\u{20AC}19,06')
+            ])),
             SizedBox(width: 20),
-            Expanded(child: TileWidget(title: 'Valuation', values: [ValueModel(value: '\u{20AC}1.160,56', changeInValue: '515,11'), ValueModel(value: '\u{20AC}1.160,56', changeInValue: '43,82%')])),
+            Expanded(
+                child: TileWidget(title: 'Valuation', values: [
+              ValueModel(value: '\u{20AC}1.160,56', changeInValue: '515,11'),
+              ValueModel(value: '\u{20AC}1.160,56', changeInValue: '43,82%')
+            ])),
           ],
         ),
         const SizedBox(height: 10),
         Row(
           children: [
-            Expanded(child: TileWidget(title: 'Diviends\u{03A3}',  values: [ValueModel(value: '\u{20AC}1.160,56')], sinceChanged: 'Since 20.02.2020',)),
+            Expanded(
+                child: TileWidget(
+              title: 'Diviends\u{03A3}',
+              values: [ValueModel(value: '\u{20AC}1.160,56')],
+              sinceChanged: 'Since 20.02.2020',
+            )),
             SizedBox(width: 20),
-            Expanded(child: TileWidget(title: 'Performance',  values: [ValueModel(value: '5.35% IZF'), ValueModel(value: '5.23% TTWROR')])),
+            Expanded(
+                child: TileWidget(title: 'Performance', values: [
+              ValueModel(value: '5.35% IZF'),
+              ValueModel(value: '5.23% TTWROR')
+            ])),
           ],
         ),
-
       ],
     );
   }

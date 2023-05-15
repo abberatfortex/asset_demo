@@ -9,10 +9,10 @@ class DashLineView extends StatelessWidget {
 
   DashLineView(
       {this.dashHeight = 1,
-        this.dashWith = 8,
-        this.dashColor = Colors.black,
-        this.fillRate = 0.5,
-        this.direction = Axis.horizontal});
+      this.dashWith = 8,
+      this.dashColor = Colors.black,
+      this.fillRate = 0.5,
+      this.direction = Axis.horizontal});
 
   @override
   Widget build(BuildContext context) {

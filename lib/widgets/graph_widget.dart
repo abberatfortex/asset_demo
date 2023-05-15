@@ -19,7 +19,6 @@ class _GraphWidgetState extends State<GraphWidget> {
           borderRadius: BorderRadius.all(Radius.circular(20)),
           child: Container(
             height: 250,
-
           ),
         )
       ],

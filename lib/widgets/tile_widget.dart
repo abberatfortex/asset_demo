@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class TileWidget extends StatefulWidget {
   String? title, sinceChanged;
   List<ValueModel>? values;
- TileWidget({Key? key, this.title, this.values, this.sinceChanged}) : super(key: key);
+  TileWidget({Key? key, this.title, this.values, this.sinceChanged})
+      : super(key: key);
 
   @override
   State<TileWidget> createState() => _TileWidgetState();
@@ -22,20 +23,29 @@ class _TileWidgetState extends State<TileWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(widget.title ?? '', style: TextStyle(color: Colors.grey.shade600, fontWeight: FontWeight.bold),),
+            Text(
+              widget.title ?? '',
+              style: TextStyle(
+                  color: Colors.grey.shade600, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 5),
             Expanded(
               child: ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.zero,
-                shrinkWrap: true,
-                itemCount: widget.values!.length,
-              itemBuilder: (context, index){
-                  return ValueRow(value: widget.values![index].value, changeInValue: widget.values![index].changeInValue);
-              }),
+                  physics: NeverScrollableScrollPhysics(),
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  itemCount: widget.values!.length,
+                  itemBuilder: (context, index) {
+                    return ValueRow(
+                        value: widget.values![index].value,
+                        changeInValue: widget.values![index].changeInValue);
+                  }),
             ),
             const SizedBox(height: 5),
-            Text(widget.sinceChanged ?? '', style: TextStyle(color: Colors.grey.shade600, fontSize: 12),),
+            Text(
+              widget.sinceChanged ?? '',
+              style: TextStyle(color: Colors.grey.shade600, fontSize: 12),
+            ),
           ],
         ),
       ),
@@ -59,12 +69,24 @@ class ValueRow extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 2.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children:[
-          Text(value?? '', style: TextStyle(fontWeight: FontWeight.bold),),
+        children: [
+          Text(
+            value ?? '',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           Container(
-            padding: changeInValue == null ? EdgeInsets.zero:EdgeInsets.all(2),
-              decoration: BoxDecoration(color: Colors.green.shade100, borderRadius: BorderRadius.circular(5)),
-              child: Text(changeInValue ?? '', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 12),)),
+              padding:
+                  changeInValue == null ? EdgeInsets.zero : EdgeInsets.all(2),
+              decoration: BoxDecoration(
+                  color: Colors.green.shade100,
+                  borderRadius: BorderRadius.circular(5)),
+              child: Text(
+                changeInValue ?? '',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green,
+                    fontSize: 12),
+              )),
         ],
       ),
     );
