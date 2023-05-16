@@ -7,7 +7,7 @@ class DashLineView extends StatelessWidget {
   final double fillRate; // [0, 1] totalDashSpace/totalSpace
   final Axis direction;
 
-  DashLineView(
+   DashLineView(
       {this.dashHeight = 1,
       this.dashWith = 8,
       this.dashColor = Colors.black,
@@ -23,7 +23,7 @@ class DashLineView extends StatelessWidget {
         return Flex(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           direction: direction,
-          children:  List.generate(dCount, (_) {
+          children: List.generate(dCount, (_) {
             return SizedBox(
               width: direction == Axis.horizontal ? dashWith : dashHeight,
               height: direction == Axis.horizontal ? dashHeight : dashWith,

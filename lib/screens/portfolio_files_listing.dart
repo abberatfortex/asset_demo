@@ -14,7 +14,6 @@ class PortfolioFilesListing extends StatelessWidget {
     PortfolioFilesListingCellModel('kommer.portfolio', '1,62 MB', 'Last modified: 19 Apr 2022 15:45'),
     PortfolioFilesListingCellModel('stock.portfolio', '1,98 MB', 'Last modified: 19 Apr 2022 15:45'),
     PortfolioFilesListingCellModel('crypto.portfolio', '1,14 MB', 'Last modified: 07 Mar 2022 11:37'),
-
   ];
 
   @override
@@ -38,14 +37,6 @@ class PortfolioFilesListing extends StatelessWidget {
                   : Image.asset('assets/images/settingLight.png')),
         ],
       ),
-      // bottomNavigationBar: BottomAppBar(
-      //   elevation: 0,
-      //   child: Container(
-      //     padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 15),
-      //     height: 125,
-      //       color: Theme.of(context).brightness == Brightness.dark ? Colors.grey.shade900 : Colors.grey.shade50,
-      //   child: const PortfolioFilesListingFooter(),),
-      // ),
       body: Column(
         children: [
           Expanded(
@@ -61,7 +52,9 @@ class PortfolioFilesListing extends StatelessWidget {
                     Container(
                       height: 1.0,
                       width: double.infinity,
-                      margin: const EdgeInsets.only(bottom: 30,),
+                      margin: const EdgeInsets.only(
+                        bottom: 20,
+                      ),
                       color: Colors.grey.shade300,
                     ),
                     ListView.separated(
@@ -82,12 +75,14 @@ class PortfolioFilesListing extends StatelessWidget {
                             updatedAt: portfolioFilesListingCellList[index].updatedAt,
                           );
                         }),
-                    Container(
-                      height: 1.0,
-                      width: double.infinity,
-                      color: Colors.grey.shade300,
-                    ),
-
+                    portfolioFilesListingCellList.isEmpty
+                        ? const SizedBox()
+                        : Container(
+                            height: 1.0,
+                            width: double.infinity,
+                            color: Colors.grey.shade300,
+                            margin: const EdgeInsets.symmetric(vertical: 20),
+                          ),
                   ],
                 ),
               ),
@@ -98,7 +93,8 @@ class PortfolioFilesListing extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 15),
               color: Theme.of(context).brightness == Brightness.dark ? Colors.grey.shade900 : Colors.grey.shade50,
-              child: const PortfolioFilesListingFooter(),),
+              child: const PortfolioFilesListingFooter(),
+            ),
           ),
         ],
       ),
