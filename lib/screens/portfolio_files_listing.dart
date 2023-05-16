@@ -14,7 +14,10 @@ class PortfolioFilesListing extends StatelessWidget {
     PortfolioFilesListingCellModel('kommer.portfolio', '1,62 MB', 'Last modified: 19 Apr 2022 15:45'),
     PortfolioFilesListingCellModel('stock.portfolio', '1,98 MB', 'Last modified: 19 Apr 2022 15:45'),
     PortfolioFilesListingCellModel('crypto.portfolio', '1,14 MB', 'Last modified: 07 Mar 2022 11:37'),
-    
+    PortfolioFilesListingCellModel('kommer.portfolio', '1,62 MB', 'Last modified: 19 Apr 2022 15:45'),
+    PortfolioFilesListingCellModel('stock.portfolio', '1,98 MB', 'Last modified: 19 Apr 2022 15:45'),
+    PortfolioFilesListingCellModel('crypto.portfolio', '1,14 MB', 'Last modified: 07 Mar 2022 11:37'),
+
   ];
 
   @override
@@ -46,18 +49,19 @@ class PortfolioFilesListing extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 HeaderWidget(title: 'Previously opened fies'),
-                const SizedBox(height: 10),
+                const SizedBox(height: 8),
                 Container(
                   height: 1.0,
                   width: double.infinity,
                   margin: const EdgeInsets.only(
-                    bottom: 20,
+                    bottom: 16,
                   ),
                   color: Colors.grey.shade300,
                 ),
               ],
             ),
             Expanded(
+              flex: 4,
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,13 +90,25 @@ class PortfolioFilesListing extends StatelessWidget {
                             height: 1.0,
                             width: double.infinity,
                             color: Colors.grey.shade300,
-                            margin: const EdgeInsets.symmetric(vertical: 20),
+                            margin: const EdgeInsets.only(top: 20,),
                           ),
                   ],
                 ),
               ),
             ),
-            const PortfolioFilesListingFooter(),
+            Expanded(
+                flex: 1,
+                child:  Column(
+                  children: [
+                    Container(
+                      height: 1.0,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                      margin: const EdgeInsets.only(bottom: 16),
+                    ),
+                    PortfolioFilesListingFooter(),
+                  ],
+                )),
           ],
         ),
       ),
