@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class RoundCornerButton extends StatelessWidget {
   String buttonText;
   RoundCornerButton({
@@ -10,7 +11,6 @@ class RoundCornerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(vertical: 15),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -18,7 +18,7 @@ class RoundCornerButton extends StatelessWidget {
       child: Center(
           child: Text(
         buttonText,
-        style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w600),
+        style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w600),
       )),
     );
   }

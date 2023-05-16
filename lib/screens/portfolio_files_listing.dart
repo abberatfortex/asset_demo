@@ -14,7 +14,15 @@ class PortfolioFilesListing extends StatelessWidget {
     PortfolioFilesListingCellModel('kommer.portfolio', '1,62 MB', 'Last modified: 19 Apr 2022 15:45'),
     PortfolioFilesListingCellModel('stock.portfolio', '1,98 MB', 'Last modified: 19 Apr 2022 15:45'),
     PortfolioFilesListingCellModel('crypto.portfolio', '1,14 MB', 'Last modified: 07 Mar 2022 11:37'),
-    PortfolioFilesListingCellModel('real_estate.portfolio', '0,67 MB', 'Last modified: 16 Jan 2022 16:15')
+    PortfolioFilesListingCellModel('real_estate.portfolio', '0,67 MB', 'Last modified: 16 Jan 2022 16:15'),
+    PortfolioFilesListingCellModel('kommer.portfolio', '1,62 MB', 'Last modified: 19 Apr 2022 15:45'),
+    PortfolioFilesListingCellModel('stock.portfolio', '1,98 MB', 'Last modified: 19 Apr 2022 15:45'),
+    PortfolioFilesListingCellModel('crypto.portfolio', '1,14 MB', 'Last modified: 07 Mar 2022 11:37'),
+    PortfolioFilesListingCellModel('real_estate.portfolio', '0,67 MB', 'Last modified: 16 Jan 2022 16:15'),
+    PortfolioFilesListingCellModel('kommer.portfolio', '1,62 MB', 'Last modified: 19 Apr 2022 15:45'),
+    PortfolioFilesListingCellModel('stock.portfolio', '1,98 MB', 'Last modified: 19 Apr 2022 15:45'),
+    PortfolioFilesListingCellModel('crypto.portfolio', '1,14 MB', 'Last modified: 07 Mar 2022 11:37'),
+    PortfolioFilesListingCellModel('real_estate.portfolio', '0,67 MB', 'Last modified: 16 Jan 2022 16:15'),
   ];
 
   @override
@@ -38,51 +46,53 @@ class PortfolioFilesListing extends StatelessWidget {
                   : Image.asset('assets/images/settingLight.png')),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  HeaderWidget(title: 'Previously opened fies'),
-                  const SizedBox(height: 10),
-                  Container(
-                    height: 1.0,
-                    width: double.infinity,
-                    margin: const EdgeInsets.only(bottom: 20),
-                    color: Colors.grey.shade300,
-                  ),
-                  ListView.separated(
-                      shrinkWrap: true,
-                      separatorBuilder: (context, index) => Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 20.0),
-                            child: DashLineView(
-                              fillRate: 0.7,
-                              dashColor: Colors.grey.shade300,
-                            ),
-                          ),
-                      itemCount: portfolioFilesListingCellList.length,
-                      itemBuilder: (context, index) {
-                        return PortfolioFilesListingCell(
-                          portfolioFileName: portfolioFilesListingCellList[index].portfolioFileName,
-                          fileSize: portfolioFilesListingCellList[index].fileSize,
-                          updatedAt: portfolioFilesListingCellList[index].updatedAt,
-                        );
-                      }),
-                  Container(
-                    height: 1.0,
-                    width: double.infinity,
-                    margin: const EdgeInsets.symmetric(vertical: 20),
-                    color: Colors.grey.shade300,
-                  ),
-                ],
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 15),
+          height: 125,
+        child: const PortfolioFilesListingFooter(),),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HeaderWidget(title: 'Previously opened fies'),
+              const SizedBox(height: 10),
+              Container(
+                height: 1.0,
+                width: double.infinity,
+                margin: const EdgeInsets.only(bottom: 20),
+                color: Colors.grey.shade300,
               ),
-            ),
-            const PortfolioFilesListingFooter()
-          ],
+              ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  separatorBuilder: (context, index) => Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20.0),
+                        child: DashLineView(
+                          fillRate: 0.7,
+                          dashColor: Colors.grey.shade300,
+                        ),
+                      ),
+                  itemCount: portfolioFilesListingCellList.length,
+                  itemBuilder: (context, index) {
+                    return PortfolioFilesListingCell(
+                      portfolioFileName: portfolioFilesListingCellList[index].portfolioFileName,
+                      fileSize: portfolioFilesListingCellList[index].fileSize,
+                      updatedAt: portfolioFilesListingCellList[index].updatedAt,
+                    );
+                  }),
+              Container(
+                height: 1.0,
+                width: double.infinity,
+                margin: const EdgeInsets.symmetric(vertical: 20),
+                color: Colors.grey.shade300,
+              ),
+
+            ],
+          ),
         ),
       ),
     );

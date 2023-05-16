@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           brightness: Brightness.light,
+          bottomAppBarTheme: BottomAppBarTheme(color: Colors.grey.shade50,elevation: 0),
           appBarTheme: AppBarTheme(
               color: Colors.grey.shade50,
               titleTextStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
               iconTheme: IconThemeData(color: Colors.white)),
           primaryColor: Colors.black),
       themeMode: ThemeMode.system,
-      home: SafeArea(child: PortfolioFilesListing()),
+      home: PortfolioFilesListing(),
     );
   }
 }
