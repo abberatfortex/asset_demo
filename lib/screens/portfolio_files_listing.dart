@@ -47,9 +47,11 @@ class PortfolioFilesListing extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
+        elevation: 0,
         child: Container(
           padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 15),
           height: 125,
+            color: Theme.of(context).brightness == Brightness.dark ? Colors.grey.shade900 : Colors.grey.shade50,
         child: const PortfolioFilesListingFooter(),),
       ),
       body: SingleChildScrollView(

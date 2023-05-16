@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           brightness: Brightness.light,
-          bottomAppBarTheme: BottomAppBarTheme(color: Colors.grey.shade50,elevation: 0),
           appBarTheme: AppBarTheme(
               color: Colors.grey.shade50,
               titleTextStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
