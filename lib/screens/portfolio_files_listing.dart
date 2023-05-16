@@ -14,6 +14,7 @@ class PortfolioFilesListing extends StatelessWidget {
     PortfolioFilesListingCellModel('kommer.portfolio', '1,62 MB', 'Last modified: 19 Apr 2022 15:45'),
     PortfolioFilesListingCellModel('stock.portfolio', '1,98 MB', 'Last modified: 19 Apr 2022 15:45'),
     PortfolioFilesListingCellModel('crypto.portfolio', '1,14 MB', 'Last modified: 07 Mar 2022 11:37'),
+    
   ];
 
   @override
@@ -37,26 +38,30 @@ class PortfolioFilesListing extends StatelessWidget {
                   : Image.asset('assets/images/settingLight.png')),
         ],
       ),
-      body: Column(
-        children: [
-          Expanded(
-            flex: 5,
-            child: SingleChildScrollView(
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+        child: Column(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                HeaderWidget(title: 'Previously opened fies'),
+                const SizedBox(height: 10),
+                Container(
+                  height: 1.0,
+                  width: double.infinity,
+                  margin: const EdgeInsets.only(
+                    bottom: 20,
+                  ),
+                  color: Colors.grey.shade300,
+                ),
+              ],
+            ),
+            Expanded(
+              child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    HeaderWidget(title: 'Previously opened fies'),
-                    const SizedBox(height: 10),
-                    Container(
-                      height: 1.0,
-                      width: double.infinity,
-                      margin: const EdgeInsets.only(
-                        bottom: 20,
-                      ),
-                      color: Colors.grey.shade300,
-                    ),
                     ListView.separated(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
@@ -87,16 +92,9 @@ class PortfolioFilesListing extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 15),
-              color: Theme.of(context).brightness == Brightness.dark ? Colors.grey.shade900 : Colors.grey.shade50,
-              child: const PortfolioFilesListingFooter(),
-            ),
-          ),
-        ],
+            const PortfolioFilesListingFooter(),
+          ],
+        ),
       ),
     );
   }
